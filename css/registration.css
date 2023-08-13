@@ -1,0 +1,29 @@
+.invalid-feedback {
+    text-align: left !important;
+}
+
+.required-fields {
+    color: red;
+}
+
+.optional-fields {
+    text-align: left !important;
+    font-size: 14px;
+    margin-left: 9px;
+    margin-bottom: 0px;
+}
+
+#default-address {
+    text-align: left;
+}
+
+#kozterulet-tipus {
+    height: 58px;
+    font-size: 16px;
+}
+
+@media only screen and (min-width: 992px) {
+    #reg-cont {
+        max-width: 700px;
+    }
+}

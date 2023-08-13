@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/registration.css">
+    <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon"> 
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/checklogin.js"></script>
+    <script src="js/registration.js"></script>
+    <title>Food order</title>
+</head>
+<body>
+  <div id="main">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="imgs/logo.png" alt="logo" id="logo"></a>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Főoldal</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Profil
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="profil-menu">
+                    <li>
+                        <a href="login.html" class="dropdown-item">Bejelentkezés</a>
+                    </li>
+                  </ul>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+    <div class="container mt-4 text-center" id="reg-cont">
+
+        <h1>Regisztráció</h1>
+        
+        <div class="card mt-4">
+            <div class="card-header">
+                <h4 class="mt-1" style="text-align: left;">Személyes adatok</h4>
+            </div>
+            <div class="card-body">
+                <form id="registration" class="need-validation mt-2" novalidate>
+                    <div class="form-group form-floating mb-4">
+                      <input type="email" id="email" name="email" class="form-control form-control-lg" placeholder=" " required />
+                      <label class="form-label" for="email">Email<span class="required-fields">*</span></label>
+                      <div class="invalid-feedback">
+                        Email megadása kötelező!
+                      </div>
+                    </div>
+        
+                    <div class="form-group form-floating mb-4">
+                      <input type="password" id="pw" name="pw" class="form-control form-control-lg" placeholder=" " required />
+                      <label class="form-label" for="pw">Jelszó<span class="required-fields">*</span></label>
+                      <div class="invalid-feedback">
+                        Jelszó megadása kötelező, <br>tartalmazzon legalább 1 nagybetűt, legalább 1 speciális karaktert, legalább 1 számot és legalább 8, de maximum 32 karakterből álljon!
+                      </div>
+                    </div>
+        
+                    <div class="form-group form-floating mb-4">
+                        <input type="password" id="pw-again" name="pw-again" class="form-control form-control-lg" placeholder=" "
+                            required />
+                        <label class="form-label" for="pw-again">Jelszó újra<span class="required-fields">*</span></label>
+                        <div class="invalid-feedback">
+                            Jelszó újra megadása kötelező!
+                        </div>
+                    </div>
+        
+                    <div class="form-group form-floating mb-4">
+                        <input type="text" id="vnev" name="vnev" class="form-control form-control-lg" placeholder=" "
+                            required />
+                        <label class="form-label" for="vnev">Vezetéknév<span class="required-fields">*</span></label>
+                        <div class="invalid-feedback">
+                            Nem megfelelő formátum!<br>Nagybetűvel kezdődő nevet adjon meg, esetlegesen kötőjellel, vagy space-el elválasztva.
+                        </div>
+                    </div>
+        
+                    <div class="form-group form-floating mb-4">
+                        <input type="text" id="knev" name="knev" class="form-control form-control-lg" placeholder=" "
+                            required />
+                        <label class="form-label" for="knev">Keresztnév<span class="required-fields">*</span></label>
+                        <div class="invalid-feedback">
+                            Nem megfelelő formátum!<br>Nagybetűvel kezdődő nevet adjon meg, esetlegesen space-el elválasztva.
+                        </div>
+                    </div>
+
+                    <div class="form-group form-floating mb-1">
+                        <input type="tel" id="tel" name="tel" class="form-control form-control-lg" placeholder=" "
+                            required />
+                        <label class="form-label" for="tel">Telefonszám<span class="required-fields">*</span></label>
+                        <div class="invalid-feedback">
+                            Nem megfelelő telefonszám formátum!<br>Elfogadott formátum, például: +36-20-123-4567, 06 30 123 4567.
+                        </div>
+                    </div>
+                  </form>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <h4 class="mt-1" style="text-align: left;">Szállítási cím adatok</h4>
+            </div>
+            <div class="card-body">
+                <p id="default-address" class="text-primary">Adj meg egy alapértelmezett szállítási címet, később vehetsz fel újat is.</p>
+                <form id="address" class="need-validation mt-2" novalidate>
+                    <div class="form-group form-floating mb-4">
+                      <input type="text" id="city" name="city" class="form-control form-control-lg" placeholder=" " required />
+                      <label class="form-label" for="city">Város<span class="required-fields">*</span></label>
+                      <div class="invalid-feedback">
+                        Város megadása kötelező!<br/>Jelenleg csak budapesti címről van lehetőség rendelni
+                      </div>
+                    </div>
+
+                    <div class="form-group form-floating mb-4">
+                        <input type="number" id="irsz" name="irsz" class="form-control form-control-lg" placeholder=" " required />
+                        <label class="form-label" for="irsz">Irányítószám<span class="required-fields">*</span></label>
+                        <div class="invalid-feedback">
+                            Irányítószám megadása kötelező
+                        </div>
+                    </div>
+
+                    <div class="form-group form-floating mb-4">
+                        <input type="text" id="utca" name="utca" class="form-control form-control-lg" placeholder=" " required />
+                        <label class="form-label" for="utca">Közterület neve<span class="required-fields">*</span></label>
+                        <div class="invalid-feedback">
+                            Közterület neve, jellege megadása kötelező!<br/>(Például: Kossuth Lajos utca)
+                        </div>
+                    </div>
+
+                    <select class="form-select form-select-lg" aria-label=".form-select-lg select" id="kozterulet-tipus" name="kozterulet-tipus" required>
+                        <option selected>Közterület típus*</option>
+                        <option value="Árok">Árok</option>
+                        <option value="Átjáró">Átjáró</option>
+                        <option value="Dűlő">Dűlő</option>
+                        <option value="Dűlőút">Dűlőút</option>
+                        <option value="Erdősor">Erdősor</option>
+                        <option value="Fasor">Fasor</option>
+                        <option value="Forduló">Forduló</option>
+                        <option value="Gát">Gát</option>
+                        <option value="Határsor">Határsor</option>
+                        <option value="Határút">Határút</option>
+                        <option value="Kapu">Kapu</option>
+                        <option value="Körönd">Körönd</option>
+                        <option value="Körtér">Körtér</option>
+                        <option value="Körút">Körút</option>
+                        <option value="Köz">Köz</option>
+                        <option value="Lakótelep">Lakótelep</option>
+                        <option value="Lejáró">Lejáró</option>
+                        <option value="Lejtő">Lejtő</option>
+                        <option value="Liget">Liget</option>
+                        <option value="Mélyút">Mélyút</option>
+                        <option value="Orom">Orom</option>
+                        <option value="Ösvény">Ösvény</option>
+                        <option value="Park">Park</option>
+                        <option value="Part">Part</option>
+                        <option value="Pincesor">Pincesor</option>
+                        <option value="Rakpart">Rakpart</option>
+                        <option value="Sétány">Sétány</option>
+                        <option value="Sikátor">Sikátor</option>
+                        <option value="Sor">Sor</option>
+                        <option value="Sugárút">Sugárút</option>
+                        <option value="Tér">Tér</option>
+                        <option value="Tere">Tere</option>
+                        <option value="Udvar">Udvar</option>
+                        <option value="Út">Út</option>
+                        <option value="Utca">Utca</option>
+                        <option value="Üdülőpart">Üdülőpart</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Válasszon ki egy közterület típust!
+                      </div>
+
+                    <div class="form-group form-floating mb-4 mt-4">
+                        <input type="text" id="hsz" name="hsz" class="form-control form-control-lg" placeholder=" " required />
+                        <label class="form-label" for="hsz">Házszám<span class="required-fields">*</span></label>
+                        <div class="invalid-feedback">
+                            Házszám megadása kötelező!
+                        </div>
+                    </div>
+
+                    <div class="form-group form-floating mb-4">
+                        <input type="number" id="csengo" name="csengo" class="form-control form-control-lg" placeholder=" "/>
+                        <label class="form-label" for="csengo">Kapucsengő</label>
+                        <p class="optional-fields">Opcionális</p>
+                        <div class="invalid-feedback">
+                            Nem megfelelő formátum!<br>(Például: 5);
+                        </div>
+                    </div>
+
+                    <div class="form-group form-floating mb-4">
+                        <input type="number" id="emelet" name="emelet" class="form-control form-control-lg" placeholder=" "/>
+                        <label class="form-label" for="emelet">Emelet</label>
+                        <p class="optional-fields">Opcionális</p>
+                        <div class="invalid-feedback">
+                            Nem megfelelő formátum!<br>(Például: 2);
+                        </div>
+                    </div>
+
+                    <div class="form-group form-floating">
+                        <input type="number" id="ajto" name="ajto" class="form-control form-control-lg" placeholder=" "/>
+                        <label class="form-label" for="ajto">Ajtó</label>
+                        <p class="optional-fields">Opcionális</p>
+                        <div class="invalid-feedback">
+                            Nem megfelelő formátum!<br>(Például: 14);
+                        </div>
+                    </div>
+        
+                  </form>
+            </div>
+          </div>
+        
+        <p id="allfieldsrequired" class="text-danger mt-2"></p>
+        <button class="btn btn-danger btn-lg btn-block w-100 mb-3" type="button" id="regbtn">Regisztráció</button>
+        <p>Már van fiókod? <a href="login.html">Jelentkezz</a>, be!</p>
+    </div>
+    
+    <div class="container-sm">
+      <div class="alert alert-danger alert-dismissible fade" role="alert" id="loginerror">
+        <div></div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+  <div id="footer">
+    <div class="bg-light text-center text-lg-start" id="footer">
+      <div class="text-center p-3" id="copyright">
+        © 2023 Copyright: Ábel Miklós Balázs
+      </div>
+    </div>
+  </div>
+    
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon"> 
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/checklogin.js"></script>
+    <script src="js/checkout.js"></script>
+    <title>Food order</title>
+</head>
+<body>
+  <div id="main">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="imgs/logo.png" alt="logo" id="logo"></a>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Főoldal</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Profil
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="profil-menu">
+                    
+                  </ul>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-sm mt-3 mb-4" id="checkout">
+        <h1 class="m-3">Rendelés véglegesítés</h1>
+
+        <div class="card mt-3">
+            <div class="card-header p-3">
+                <h2 class="mb-0">Rendelés adatai</h2>
+            </div>
+            <div class="card-body">
+                <div class="card mb-2">
+                    <div class="card-header">
+                        <p class="mb-0 fs-5 fw-bold">Név</p>
+                    </div>
+                    <div class="card-body">
+                        <p id="nev" class="mb-0 fs-5"></p>
+                    </div>
+                </div>
+
+                <div class="card mb-2">
+                    <div class="card-header">
+                        <p class="mb-0 fs-5 fw-bold">Étterem</p>
+                    </div>
+                    <div class="card-body">
+                        <p id="etterem" class="mb-0 fs-5"></p>
+                    </div>
+                </div>
+                
+                <div class="card mb-2">
+                    <div class="card-header">
+                        <p class="mb-0 fs-5 fw-bold">Tételek</p>
+                    </div>
+                    <div class="card-body">
+                        <ul id="tetelek" class="list-group">
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-2">
+                    <div class="card-header">
+                        <p class="mb-0 fs-5 fw-bold">Fizetendő</p>
+                    </div>
+                    <div class="card-body">
+                        <p id="sum" class="mb-0 fs-5"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h2 class="mb-0">Szállítási cím</h2>
+            </div>
+            <div class="card-body">
+                <select id="addresses" class="form-select mt-2 mb-2" aria-label="Default select example">
+                    <option selected>Válassz egy szállítási címet</option>
+                </select>
+                <p id="chooseaddress" class="text-danger mb-1"></p>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h2 class="mb-0">Fizetési adatok</h2>
+            </div>
+            <div class="card-body pb-1">
+                <h5>Add meg a bankkártya adataidat</h5>
+                <form id="card" class="row need-validation mt-2" novalidate>
+                    <div class="col-md-12">
+                        <div class="form-group form-floating mb-3">
+                            <input type="text" id="cardnumber" name="cardnumber" class="form-control form-control-lg" placeholder=" " required />
+                            <label class="form-label" for="cardnumber">Kártyaszám</label>
+                            <div class="invalid-feedback">
+                              Kártyaszám megadása kötelező!<br>Formátuma: 1234-5678-1234-5678
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group form-floating mb-3">
+                            <input type="text" id="kartyatulaj" name="kartyatulaj" class="form-control form-control-lg" placeholder=" " required />
+                            <label class="form-label" for="kartyatulaj">Kártyatulajdonos neve</label>
+                            <div class="invalid-feedback">
+                              Kártyatulajdonos nevének megadása kötelező!<br>A kártyán szereplő nevet adj meg!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group form-floating mb-3">
+                            <input type="number" id="biztkod" name="biztkod" class="form-control form-control-lg" placeholder=" " required />
+                            <label class="form-label" for="biztkod">Biztonsági kód</label>
+                            <div class="invalid-feedback">
+                              Biztonsági kód megadása kötelező!<br>Például 123.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group form-floating mb-3">
+                            <input type="text" id="expirity" name="expirity" class="form-control form-control-lg" placeholder=" " required />
+                            <label class="form-label" for="expirity">Lejárati dátum</label>
+                            <div class="invalid-feedback">
+                              Lejárati dátum megadása kötelező!<br>A lejárati dátum nem lehet későbbi mint az aktuális dátum.<br>Formátum: 09/23
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <p id="allfieldsrequired" class="text-danger mt-3 mb-0 text-center fs-5"></p>
+
+        <button type="button" id="order" class="btn btn-danger w-100 mt-3 fw-bold fs-4">Rendelés véglegesítése</button>
+    </div>
+    
+    <div class="container-sm">
+      <div class="alert alert-danger alert-dismissible fade" role="alert" id="loginerror">
+        <div></div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+  <div id="footer">
+    <div class="bg-light text-center text-lg-start" id="footer">
+      <div class="text-center p-3" id="copyright">
+        © 2023 Copyright: Ábel Miklós Balázs
+      </div>
+    </div>
+  </div>
+    
+</body>
+</html>

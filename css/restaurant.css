@@ -1,0 +1,44 @@
+#rest-header{
+    width: 100%;
+    max-height: 300px;
+}
+
+#rest-header-img {
+    object-fit:cover;
+    width: 100%;
+    max-height: 300px;
+}
+
+.etel-img {
+    max-width: 50%;
+    height: auto;
+}
+
+.etel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.etel > h5 {
+    margin-bottom: 0;
+    max-width: 30%;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.decrease-item {
+    margin: 5px;
+    border-radius: 50px;
+    min-width: 37px;
+}
+
+.increase-item {
+    margin: 5px;
+    border-radius: 50px;
+    min-width: 37px;
+}

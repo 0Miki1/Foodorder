@@ -1,0 +1,11 @@
+.list-group-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media only screen and (min-width: 992px) {
+    #checkout {
+        max-width: 900px;
+    }    
+}

@@ -1,0 +1,9 @@
+#map {
+    width: 100%;
+    min-height: 500px;
+    border: 2px solid black;;
+}
+
+.gm-style-cc {
+    display: none;
+}

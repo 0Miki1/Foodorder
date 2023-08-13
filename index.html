@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon"> 
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/checklogin.js"></script>
+    <script src="js/fooldal.js"></script>
+    <title>Food order</title>
+</head>
+<body>
+  <div id="main">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="imgs/logo.png" alt="logo" id="logo"></a>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Főoldal</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Profil
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="profil-menu"></ul>
+              </li>
+          </ul>
+          <div id="search-login">
+              <form class="d-flex" id="kereses">
+                  <input class="form-control me-2" type="search" placeholder="Keresés" aria-label="Search" id="searchbar" name="search">
+                  <button class="btn" type="button" id="keresesbtn"><img src="imgs/search-icon.png" alt="kereses"></button>
+              </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+  
+    <div id="carousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="2500">
+          <img src="imgs/slider_item1.jpg" class="d-block w-100 slider-img" alt="item1">
+          <div class="carousel-caption d-none d-md-block slide-text text-dark">
+            <h4>Rendelj házhoz</h4>
+            <p>Válassz az elérhető éttermek közül és rövid időn belül már az asztalodon lesz a friss étel</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2500">
+          <img src="imgs/slider_item2.jpg" class="d-block w-100 slider-img" alt="item2">
+          <div class="carousel-caption d-none d-md-block slide-text text-dark">
+            <h4>Rendeléskövetés</h4>
+            <p>Kövesd nyomon rendelésed állapotát valós időben</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2500">
+          <img src="imgs/slider_item3.png" class="d-block w-100 slider-img" alt="item3">
+          <div class="carousel-caption d-none d-md-block slide-text text-dark">
+            <h4>Választék</h4>
+            <p>Sokszínű étterem kínálat, hogy mindenki megtalálja a számára megfelelőt.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  
+    <div class="container-fluid mt-5" id="content">
+      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg">
+        <div class="col-md-3 mb-3">
+          <h2 class="mb-4">Szűrő</h2>
+          <div class="card mb-3">
+            <div class="card-header"><h5>Étterem típusok</h5></div>
+            <div class="card-body"  id="filter">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="restType" id="restTypeDefault" checked>
+                <label class="form-check-label" for="restTypeDefault">
+                  Összes típus
+                </label>
+              </div>
+            </div>  
+          </div>
+        </div>
+  
+        <div class="col-md-9">
+          <h1 class="mb-3">Éttermek</h1>
+          <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5" id="restaurants">  
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container-sm">
+      <div class="alert alert-danger alert-dismissible fade" role="alert" id="loginerror">
+        <div></div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+  <div id="footer">
+    <div class="bg-light text-center text-lg-start" id="footer">
+      <div class="text-center p-3" id="copyright">
+        © 2023 Copyright: Ábel Miklós Balázs
+      </div>
+    </div>
+  </div>
+    
+</body>
+</html>
